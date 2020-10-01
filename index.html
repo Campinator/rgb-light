@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Lamp</title>
+  <meta name="description" content="Controls the overhead light in Camp's room">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta http-equiv="cleartype" content="on">
+
+  <!-- iPad and iPad mini (with @2× display) iOS ≥ 8 -->
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="img/touch/apple-touch-icon-180x180-precomposed.png">
+  <!-- iPad 3+ (with @2× display) iOS ≥ 7 -->
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/touch/apple-touch-icon-152x152-precomposed.png">
+  <!-- iPad (with @2× display) iOS ≤ 6 -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+  <!-- iPhone (with @2× and @3 display) iOS ≥ 7 -->
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/touch/apple-touch-icon-120x120-precomposed.png">
+  <!-- iPhone (with @2× display) iOS ≤ 6 -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+  <!-- iPad mini and the first- and second-generation iPad (@1× display) on iOS ≥ 7 -->
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/touch/apple-touch-icon-76x76-precomposed.png">
+  <!-- iPad mini and the first- and second-generation iPad (@1× display) on iOS ≤ 6 -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+  <!-- Android Stock Browser and non-Retina iPhone and iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+  <!-- Fallback for everything else -->
+  <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+  <!--
+            Chrome 31+ has home screen icon 192×192 (the recommended size for multiple resolutions).
+            If it’s not defined on that size it will take 128×128.
+        -->
+  <link rel="icon" sizes="192x192" href="img/touch/touch-icon-192x192.png">
+  <link rel="icon" sizes="128x128" href="img/touch/touch-icon-128x128.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#222222">
+
+  <!-- Add to homescreen for Chrome on Android -->
+
+  <meta name="mobile-web-app-capable" content="yes">
+
+
+  <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="topbar">
+    
+  </section>
+  <main class="main">
+    <input orient = "vertical" class = "slider" id = "saturation" type="range" min = "0" max = "100" value = "100" oninput = "setSaturation(this.value)">
+    <svg id="color" xmlns="http://www.w3.org/2000/svg" viewBox="-64 -64 2176 2176">
+      <defs>
+        <pattern id="rainbow" patternUnits="userSpaceOnUse" width="4096" height="4096">
+          <image xlink:href="https://i.imgur.com/ibpTHxV.png" x="0" y="0" width="2048" height="2048" />
+        </pattern>
+      </defs>
+      <circle class="touchwheel" id="colorwheel" fill="url(#rainbow)" stroke="none" stroke-width="1" cx="1024" cy="1024"
+        r="1024" />
+      <g id="power" class="off">
+        <circle id="powerswitch" fill="white" stroke="none" stroke-width="1" cx="1024" cy="1024" r="920" />
+        <g id = "powerbutton" fill="none" stroke="#000" stroke-linecap="round" transform = "scale(7.5 7.5) translate(32 2)">
+          <path d="m141.34 86.157a64.233 61.71 0 0 1 24.417 69.107 64.233 61.71 0 0 1-61.26 43.154 64.233 61.71 0 0 1-61.26-43.154 64.233 61.71 0 0 1 24.417-69.107" stroke-width="15.74"/>
+          <rect x="104.1" y="64.946" width=".80181" height="47.307" stroke-linejoin="round" stroke-width="16"/>
+        </g>
+      </g>
+      <circle id="dragbutton" fill="none" stroke="white" stroke-width="30" cx="1024" cy="1200" r="55" />
+    </svg>
+    <input orient = "vertical" class = "slider" id = "lightness" type="range" min = "0" max = "100" value = "100" oninput = "setLightness(this.value)">
+  </main>
+  <section class="custombar">
+
+  </section>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
